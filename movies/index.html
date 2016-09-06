@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body ng-cloack ng-controller="movieCtrl as movie">
+  <div class="container">
+    <input id="search" ng-model="search.name">
+  </div>
+    <div class="row" >
+      <div class="col s12 m2" ng-repeat="m in movie.collection | filter : search | orderBy: 'name' : 0">
+        <div class="card">
+          <div class="card-image">
+            <img ng-src="{{m.img}}">
+            <span class="card-title">{{m.name}}</span>
+          </div>
+          <div class="card-content">
+            <p>{{m.year}}, {{m.category}}</p>
+          </div>
+          <div class="card-action">
+            <h5>Cast</h5>
+            <ul ng-repeat="p in  m.cast">
+              <li> {{p}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

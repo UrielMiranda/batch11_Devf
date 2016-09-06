@@ -1,0 +1,7 @@
+.card-image > img{
+    max-height: 300px;
+    width: 390px;
+}
+.card-action{
+    padding: 0px;
+}
